@@ -1,0 +1,64 @@
+﻿@model CarProject.Models.Car
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (Model.Make == Enums.CarMake.Ford)
+{
+    
+}
+<form id="car-form" method="get" action="GetCostOfCar">
+    <div class="text-center">
+        <h2>Choose your car</h2>
+
+        <div class="m-3">
+            <span>Make</span>
+            <select>
+                <option>Please select a make...</option>
+                @foreach (Enums.CarMake make in (Enums.CarMake[])Enum.GetValues(typeof(Enums.CarMake)))
+                {
+                    <option>@make</option>
+                }
+            </select>    
+        </div>
+    
+        <div class="m-3">
+            <span>Model</span>
+            <select>
+                <option>Please select a make...</option>
+            </select>
+        </div>
+
+        <div class="m-3">
+            <span>Engine Size</span>
+            <select>
+                @foreach (Enums.EngineSize engineSize in (Enums.EngineSize[])Enum.GetValues(typeof(Enums.EngineSize)))
+                {
+                    <option>@engineSize</option>
+                }
+            </select>
+            </div>
+
+        <div class="m-3">
+            <span>Metalic Paint?</span>
+            <input type="checkbox" name="Car.MetallicPaint" />
+        </div>
+
+        <div class="m-3">
+            <span>Heated Seats?</span>
+            <input type="checkbox" name="Car.HeatedSeats"/>
+        </div>
+
+        <div class="m-3">
+            <span>Reversing Camera?</span>
+            <input type="checkbox" value="Car.ReversingCamera"/>
+        </div>
+
+        <button type="submit">Get Cost</button>
+    </div>
+</form>
+
+<script>
+
+</script>
